@@ -9,8 +9,8 @@ body {
 }
 
 main {
-  width: auto;
-  margin: 3rem 12% auto;
+  width: 1080px auto;
+  margin: 3rem 29% auto;
   display: grid;
   grid-template-columns: 300px 4fr;
   grid-template-rows: 6.5rem 10rem 20rem;
