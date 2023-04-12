@@ -1,5 +1,11 @@
 "use strict";
 
+let hello = alert("Hello, please click on the products you like!");
+
+function helloQuack() {
+  alert("Quack!");
+}
+
 let productContainer = document.querySelector("section");
 let resultButton = document.querySelector("section + div");
 let image1 = document.querySelector("section img:first-child");
