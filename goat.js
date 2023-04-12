@@ -48,12 +48,29 @@ function handleGoatClick(event) {
   }
   clicks++;
   let clickGoat = event.target.alt;
-  //   i = 0, looping the amount of times the array is long.
-  for (let i = 0; i < allGoatsArray.length; i++) {
+  //   i = 0, looping the amount of times the array is long. at the end is the after though, the last action taken.
+  for (let i = 0; i < state.allGoatsArray.length; i++) {
     if (clickGoat === state.allGoatsArray[i].name) {
       state.allGoatsArray[i].clicks++;
       break;
     }
+  }
+  if (clicks === maxClicksAllowed) {
+    goatContainer.removeEventListener("click", handleGoatClick);
+    resultButton.addEventListener("click", renderResults);
+    resultButton.className = `clicks-allowed`;
+    goatContainer.className = `no-voting`;
+  } else {
+    renderGoat();
+  }
+}
+
+function renderResults() {
+  let ul = document.querySelector("ul");
+  for (let i = 0; i < state.allGoatsArray.length; i++) {
+    let li = document.createElement("li");
+    li.textContent = `${state.allGoatsarray[i].name} had views, ${state.allGoatsArray[i].views}. Was clicked ${state.allGoatsArray[i].clicks} times.`;
+    ul.appendChild(li);
   }
 }
 

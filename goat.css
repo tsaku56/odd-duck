@@ -53,3 +53,19 @@ section img {
   max-height: 26rem;
   border: 5px solid transparent;
 }
+
+section.no-voting img:hover {
+  border: 5px solid transparent;
+  cursor: none;
+}
+
+ul {
+  margin: 1rem;
+}
+
+li {
+  margin: 0.5rem;
+}
+
+section.div {
+}
