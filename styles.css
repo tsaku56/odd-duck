@@ -68,8 +68,8 @@ li {
 }
 
 section + div {
-  background-color: darkgrey;
-  color: lightgrey;
+  background-color: rgb(223, 167, 15);
+  color: rgb(250, 250, 250);
   padding: 0.5rem 1rem;
   width: max-content;
   height: max-content;

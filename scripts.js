@@ -68,6 +68,7 @@ function handleProdClick(event) {
     resultButton.addEventListener("click", renderResults);
     resultButton.className = `clicks-allowed`;
     productContainer.className = `no-voting`;
+    alert("Please View Your Results Below");
   } else {
     renderProduct();
   }
