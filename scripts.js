@@ -1,6 +1,7 @@
 "use strict";
 
 let hello = alert("Hello, please click on the products you like!");
+let warning = alert("Don't touch the duck.");
 
 function helloQuack() {
   alert("Quack!");
