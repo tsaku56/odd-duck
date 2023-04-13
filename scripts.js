@@ -1,7 +1,7 @@
 "use strict";
 
-let hello = alert("Hello, please click on the products you like!");
-let warning = alert("Don't touch the duck.");
+// let hello = alert("Hello, please click on the products you like!");
+// let warning = alert("Don't touch the duck.");
 
 function helloQuack() {
   alert("Quack!");
@@ -72,8 +72,8 @@ function handleProdClick(event) {
   }
   if (clicks === maxClicksAllowed) {
     productContainer.removeEventListener("click", handleProdClick);
-    resultButton.addEventListener("click", renderResults);
-    resultButton.className = `clicks-allowed`;
+    resultButton.addEventListener("click", renderChart);
+    // resultButton.className = `clicks-allowed`;
     productContainer.className = `no-voting`;
     alert("Please Click View Results Below");
   } else {
@@ -81,13 +81,60 @@ function handleProdClick(event) {
   }
 }
 
-function renderResults() {
-  let ul = document.querySelector("ul");
+// function renderResults() {
+//   let ul = document.querySelector("ul");
+//   for (let i = 0; i < state.allProductsArray.length; i++) {
+//     let li = document.createElement("li");
+//     li.textContent = `${state.allProductsArray[i].name} had ${state.allProductsArray[i].clicks} votes, and was seen ${state.allProductsArray[i].views} times.`;
+//     ul.appendChild(li);
+//   }
+// }
+
+function renderChart() {
+  const labelArray = [];
+  const clicksArray = [];
+  const viewsArray = [];
+
   for (let i = 0; i < state.allProductsArray.length; i++) {
-    let li = document.createElement("li");
-    li.textContent = `${state.allProductsArray[i].name} had ${state.allProductsArray[i].clicks} votes, and was seen ${state.allProductsArray[i].views} times.`;
-    ul.appendChild(li);
+    let thisProd = state.allProductsArray[i];
+    labelArray.push(thisProd.name);
+    clicksArray.push(thisProd.clicks);
+    viewsArray.push(thisProd.views);
   }
+
+  const data = {
+    labels: labelArray,
+    datasets: [
+      {
+        label: "Views",
+        data: viewsArray,
+        backgroundColor: ["tomato"],
+        borderColor: ["teal"],
+        borderWidth: 2,
+      },
+      {
+        label: "Clicks",
+        data: clicksArray,
+        backgroundColor: ["teal"],
+        borderColor: ["tomato"],
+        borderWidth: 2,
+      },
+    ],
+  };
+
+  const config = {
+    type: "bar",
+    data: data,
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  };
+  const canvasChart = document.getElementById("myChart");
+  new Chart(canvasChart, config);
 }
 
 let bag = new Products("bag", "./images/bag.jpg");
