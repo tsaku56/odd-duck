@@ -11,12 +11,6 @@ body {
   min-height: auto;
 }
 
-/* marquee {
-  width: 100x;
-  height: 300px;
-  white-space: nowrap;
-} */
-
 main {
   width: auto;
   margin: auto;
@@ -160,12 +154,4 @@ div h2 {
   li {
     font-size: 1rem;
   }
-}
-
-marquee {
-  direction:rtl;
-  width: 1250px; 
-  height: 300px;
-  behavior: initial 
-  scrollamount: 10s;
 }
