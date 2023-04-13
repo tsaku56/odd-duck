@@ -1,14 +1,25 @@
 "use strict";
 
-// let hello = alert("Hello, please click on the products you like!");
-// let warning = alert("Don't touch the duck.");
+let hello = alert("Hello, please click on the products you like!");
+let warning = alert("Please don't touch our duck.");
 
+let duckCounter = 0;
 function helloQuack() {
-  alert("Quack!");
+  alert(`Quack!`);
+  duckCounter++;
+  if (duckCounter === 1) {
+    alert(`I asked you not to touch the duck.`);
+  }
+  if (duckCounter === 2) {
+    alert(`Ouch, that's fowl play!`);
+  } else if (duckCounter === 3) {
+    alert(`This means war!`);
+    document.getElementById("siteLogo").src = "https://media0.giphy.com/media/fWAAhHvKk9QtMOSZfy/giphy.gif";
+  }
 }
 
 let productContainer = document.querySelector("section");
-let resultButton = document.querySelector("section + div");
+let resultButton = document.querySelector("#resultButton");
 let image1 = document.querySelector("section img:first-child");
 let image2 = document.querySelector("section img:nth-child(2)");
 let image3 = document.querySelector("section img:nth-child(3)");
@@ -31,18 +42,28 @@ function getRandomNumber() {
   return Math.floor(Math.random() * state.allProductsArray.length);
 }
 
+let usedProd = [];
+
 function renderProduct() {
   let prod1 = getRandomNumber();
   let prod2 = getRandomNumber();
   let prod3 = getRandomNumber();
-  if (prod1 === prod2) {
+  while (prod1 === prod2 || prod1 === prod3 || prod2 === prod3 || usedProd.includes(prod1) || usedProd.includes(prod2) || usedProd.includes(prod3)) {
+    prod1 = getRandomNumber();
     prod2 = getRandomNumber();
-  }
-  if (prod1 === prod3) {
-    prod3 = getRandomNumber();
-  } else if (prod2 === prod3) {
     prod3 = getRandomNumber();
   }
+
+  // function renderProduct() {
+  //   let prod1 = getRandomNumber();
+  //   let prod2 = getRandomNumber();
+  //   while (prod1 == prod2) {
+  //     prod2 = getRandomNumber();
+  //   }
+  //   let prod3 = getRandomNumber();
+  //   while (prod3 == prod1 || prod3 == prod2) {
+  //     prod3 = getRandomNumber();
+  //   }
 
   image1.src = state.allProductsArray[prod1].src;
   image2.src = state.allProductsArray[prod2].src;
@@ -56,6 +77,9 @@ function renderProduct() {
   console.log(state.allProductsArray[prod1]);
   console.log(state.allProductsArray[prod2]);
   console.log(state.allProductsArray[prod3]);
+
+  usedProd = [];
+  usedProd.push(prod1, prod2, prod3);
 }
 
 function handleProdClick(event) {
@@ -72,23 +96,31 @@ function handleProdClick(event) {
   }
   if (clicks === maxClicksAllowed) {
     productContainer.removeEventListener("click", handleProdClick);
-    resultButton.addEventListener("click", renderChart);
+    resultButton.addEventListener("click", renderChart, alert(`Table Below!`));
     // resultButton.className = `clicks-allowed`;
-    productContainer.className = `no-voting`;
-    alert("Please Click View Results Below");
+    // productContainer.className = `novoting`;
+    alert("Please Click Table Results Button");
+    let thanks = document.querySelector("#voting");
+    let you = document.createElement("h3");
+    you.textContent = `Thanks for being involed in our survey!`;
+    thanks.appendChild(you);
+    renderResults();
   } else {
     renderProduct();
   }
 }
 
-// function renderResults() {
-//   let ul = document.querySelector("ul");
-//   for (let i = 0; i < state.allProductsArray.length; i++) {
-//     let li = document.createElement("li");
-//     li.textContent = `${state.allProductsArray[i].name} had ${state.allProductsArray[i].clicks} votes, and was seen ${state.allProductsArray[i].views} times.`;
-//     ul.appendChild(li);
-//   }
-// }
+function renderResults() {
+  let ul = document.querySelector("ul");
+  let ulh2 = document.createElement("h2");
+  ulh2.textContent = `The Results`;
+  ul.appendChild(ulh2);
+  for (let i = 0; i < state.allProductsArray.length; i++) {
+    let li = document.createElement("li");
+    li.textContent = `• ${state.allProductsArray[i].name} had ${state.allProductsArray[i].clicks} votes, and was seen ${state.allProductsArray[i].views} times.`;
+    ul.appendChild(li);
+  }
+}
 
 function renderChart() {
   const labelArray = [];
@@ -108,15 +140,15 @@ function renderChart() {
       {
         label: "Views",
         data: viewsArray,
-        backgroundColor: ["tomato"],
-        borderColor: ["teal"],
+        backgroundColor: ["rgb(223, 167, 15)"],
+        borderColor: ["rgb(226, 148, 46)"],
         borderWidth: 2,
       },
       {
         label: "Clicks",
         data: clicksArray,
-        backgroundColor: ["teal"],
-        borderColor: ["tomato"],
+        backgroundColor: ["rgb(255, 255, 255)"],
+        borderColor: ["rgba(211, 187, 176, 0.3)"],
         borderWidth: 2,
       },
     ],
@@ -131,6 +163,7 @@ function renderChart() {
           beginAtZero: true,
         },
       },
+      indexAxis: "y",
     },
   };
   const canvasChart = document.getElementById("myChart");

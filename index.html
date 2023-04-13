@@ -18,19 +18,23 @@
         onclick="helloQuack()"
       />
       <h1>Odd Duck Co.</h1>
+      <div class="theResults">
+        <ul></ul>
+      </div>
       <section>
         <img />
         <img />
         <img />
       </section>
-      <div>View Results</div>
+      <div id="voting"></div>
+      <div id="resultButton">Table Results</div>
       <!-- canvas is a container for graphics -->
       <div class="chart-container">
-        <canvas id="myChart" width="500px" height="400px"><p>Test Test</p></canvas>
+        <canvas id="myChart" width="800px" height="500px"><p>Test Test</p></canvas>
       </div>
     </main>
     <footer>
-      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
       <script src="scripts.js"></script>
     </footer>
   </body>
