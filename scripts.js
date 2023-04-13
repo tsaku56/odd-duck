@@ -1,20 +1,26 @@
 "use strict";
 
-let hello = alert("Hello, please click on the products you like!");
-let warning = alert("Please don't touch our duck.");
+// let hello = alert("Hello, please click on the products you like!");
+// let warning = alert("Please don't touch our duck.");
 
 let duckCounter = 0;
 function helloQuack() {
-  alert(`Quack!`);
   duckCounter++;
   if (duckCounter === 1) {
-    alert(`I asked you not to touch the duck.`);
+    alert(`Quack`);
   }
   if (duckCounter === 2) {
+    alert(`I asked you not to touch the duck.`);
+  }
+  if (duckCounter === 3) {
     alert(`Ouch, that's fowl play!`);
-  } else if (duckCounter === 3) {
+  }
+  if (duckCounter === 4) {
     alert(`This means war!`);
     document.getElementById("siteLogo").src = "https://media0.giphy.com/media/fWAAhHvKk9QtMOSZfy/giphy.gif";
+    document.body.style.backgroundColor = "rgba(105, 105, 105, 0.664)";
+  } else if (duckCounter >= 5) {
+    alert(`I will get you at the quack of dawn.`);
   }
 }
 
