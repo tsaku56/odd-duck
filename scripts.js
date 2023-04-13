@@ -96,7 +96,7 @@ function handleProdClick(event) {
   }
   if (clicks === maxClicksAllowed) {
     productContainer.removeEventListener("click", handleProdClick);
-    resultButton.addEventListener("click", renderChart, alert(`Table Below!`));
+    resultButton.addEventListener("click", renderChart);
     // resultButton.className = `clicks-allowed`;
     // productContainer.className = `novoting`;
     alert("Please Click Table Results Button");
@@ -117,7 +117,9 @@ function renderResults() {
   ul.appendChild(ulh2);
   for (let i = 0; i < state.allProductsArray.length; i++) {
     let li = document.createElement("li");
-    li.textContent = `• ${state.allProductsArray[i].name} had ${state.allProductsArray[i].clicks} votes, and was seen ${state.allProductsArray[i].views} times.`;
+    li.textContent = `• ${state.allProductsArray[i].name} had ${state.allProductsArray[i].clicks} votes, and was seen ${state.allProductsArray[i].views} times.(${Math.round(
+      (state.allProductsArray[i].clicks / state.allProductsArray[i].views) * 100
+    )}%)`;
     ul.appendChild(li);
   }
 }
