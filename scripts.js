@@ -192,24 +192,24 @@ state.allProductsArray.push(banana, bathroom, boots, breakFast, bubbleGum, chair
 // const oldProdArray = [];
 
 // let settings = {
-//   data: oldProdArray,
+//   data: [thisProd.name[i], thisProd.clicks[i], thisProd.views[i]],
 // };
-
-// function loadSettings() {
-//   let getSetttings = localStorage.getItem("settings");
-//   if (getSetttings) {
-//     setting = JSON.parse(getSetttings);
-//     for (let i = 0; i < settings.data.length; i++) {
-//       const oldProd = new Products(settings.data[i].name, settings.data[i].src, settings.data[i].view, settings.data[i].click);
-//       oldProdArray.push(oldProd);
-//     }
-//   }
-// }
 
 // function saveSettings() {
 //   let stringify = JSON.stringify(settings);
 //   localStorage.setItem("settings", stringify);
 //   console.log(stringify);
+// }
+
+// function loadSettings() {
+//   let getSetttings = localStorage.getItem("settings");
+//   if (getSetttings) {
+//     setting = JSON.parse(getSetttings);
+//     for (let i = 0; i < settings.length; i++) {
+//       const oldProd = new Products(settings[i].name, settings[i].view, settings[i].clicks);
+//       oldProdArray.push(oldProd);
+//     }
+//   }
 // }
 
 // function pageLoad() {
@@ -218,6 +218,8 @@ state.allProductsArray.push(banana, bathroom, boots, breakFast, bubbleGum, chair
 //     return;
 //   }
 // }
+
+// globalChart?.destroy();
 
 renderProduct();
 
