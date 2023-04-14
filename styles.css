@@ -74,7 +74,7 @@ section img:hover {
   border-color: rgb(223, 167, 15);
   border-style: outset;
   transform: scale(1.1);
-  transition-duration: 1.5s;
+  transition-duration: 1s;
 }
 
 section.no-voting {
@@ -117,6 +117,8 @@ li {
 .chart-container {
   grid-column-start: 1;
   grid-column-end: 5;
+  grid-row-start: 5;
+  grid-row-end: 5;
 }
 
 .theResults {

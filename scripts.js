@@ -1,7 +1,7 @@
 "use strict";
 
-let hello = alert("Hello, please click on the products you like!");
-let warning = alert("Please don't touch our duck.");
+// let hello = alert("Hello, please click on the products you like!");
+// let warning = alert("Please don't touch our duck.");
 
 let duckCounter = 0;
 function helloQuack() {
@@ -60,17 +60,6 @@ function renderProduct() {
     prod3 = getRandomNumber();
   }
 
-  // function renderProduct() {
-  //   let prod1 = getRandomNumber();
-  //   let prod2 = getRandomNumber();
-  //   while (prod1 == prod2) {
-  //     prod2 = getRandomNumber();
-  //   }
-  //   let prod3 = getRandomNumber();
-  //   while (prod3 == prod1 || prod3 == prod2) {
-  //     prod3 = getRandomNumber();
-  //   }
-
   image1.src = state.allProductsArray[prod1].src;
   image2.src = state.allProductsArray[prod2].src;
   image3.src = state.allProductsArray[prod3].src;
@@ -104,7 +93,7 @@ function handleProdClick(event) {
     productContainer.removeEventListener("click", handleProdClick);
     resultButton.addEventListener("click", renderChart);
     // resultButton.className = `clicks-allowed`;
-    // productContainer.className = `novoting`;
+    productContainer.className = `novoting`;
     alert("Please Click Table Results Button");
     let thanks = document.querySelector("#voting");
     let you = document.createElement("h3");
@@ -199,6 +188,36 @@ let waterCan = new Products("water-can", "./images/water-can.jpg");
 let wineGlass = new Products("wine-glass", "./images/wine-glass.jpg");
 
 state.allProductsArray.push(banana, bathroom, boots, breakFast, bubbleGum, chair, cthulhu, dogDuck, dragon, pen, petSweep, scissors, shark, sweep, tauntaun, unicorn, waterCan, wineGlass);
+
+// const oldProdArray = [];
+
+// let settings = {
+//   data: oldProdArray,
+// };
+
+// function loadSettings() {
+//   let getSetttings = localStorage.getItem("settings");
+//   if (getSetttings) {
+//     setting = JSON.parse(getSetttings);
+//     for (let i = 0; i < settings.data.length; i++) {
+//       const oldProd = new Products(settings.data[i].name, settings.data[i].src, settings.data[i].view, settings.data[i].click);
+//       oldProdArray.push(oldProd);
+//     }
+//   }
+// }
+
+// function saveSettings() {
+//   let stringify = JSON.stringify(settings);
+//   localStorage.setItem("settings", stringify);
+//   console.log(stringify);
+// }
+
+// function pageLoad() {
+//   let saveSettings = localStorage.getItem("settings");
+//   if (!saveSettings) {
+//     return;
+//   }
+// }
 
 renderProduct();
 
