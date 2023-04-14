@@ -1,0 +1,58 @@
+body {
+  background-color: white;
+}
+
+h1 {
+  text-align: center;
+  color: black;
+  padding: 1rem;
+  margin: auto;
+  width: 15rem;
+}
+
+form {
+  display: flex;
+  justify-content: space-between;
+  background-color: inherit;
+}
+
+label {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+article {
+  width: 100%;
+  margin: auto;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  align-items: center;
+  margin: auto;
+}
+
+summary {
+  background-color: rgba(0, 255, 255, 0.432);
+  padding: 1rem;
+}
+
+p {
+  margin: 0;
+  background-color: inherit;
+  padding: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.dark {
+  color: white;
+  background-color: gainsboro;
+}
+
+.light {
+  color: black;
+  background-color: white;
+}

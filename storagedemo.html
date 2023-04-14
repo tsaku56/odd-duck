@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <meta name="description" content="local storage" />
+    <link rel="stylesheet" href="storagedemo.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="wlecome">Welcome</h1>
+      <form>
+        <label for="dark">
+          <input type="radio" name="mode" id="darkButton" class="mode" value="dark" />
+          <span>Dark Mode</span>
+        </label>
+        <label for="light">
+          <input type="radio" name="mode" id="lightButton" class="mode" value="light" checked />
+          <span>Light Mode</span>
+        </label>
+      </form>
+      <article>
+        <details>
+          <summary>Section 1</summary>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est eveniet veniam ut laboriosam, a esse facere quod at eligendi quisquam.</p>
+        </details>
+        <details>
+          <summary>Section 2</summary>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est eveniet veniam ut laboriosam, a esse facere quod at eligendi quisquam.</p>
+        </details>
+        <details>
+          <summary>Section 3</summary>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est eveniet veniam ut laboriosam, a esse facere quod at eligendi quisquam.</p>
+        </details>
+      </article>
+      <p>Leave a comment</p>
+      <textarea name="commentBox" id="" cols="30" rows="10"></textarea>
+    </div>
+    <footer>
+      <script src="storagedemo.js"></script>
+    </footer>
+  </body>
+</html>
