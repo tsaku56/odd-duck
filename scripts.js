@@ -1,7 +1,7 @@
 "use strict";
 
-// let hello = alert("Hello, please click on the products you like!");
-// let warning = alert("Please don't touch our duck.");
+let hello = alert("Hello, please click on the products you like!");
+let warning = alert("Please don't touch our duck.");
 
 let duckCounter = 0;
 function helloQuack() {
@@ -93,7 +93,7 @@ function handleProdClick(event) {
     productContainer.removeEventListener("click", handleProdClick);
     resultButton.addEventListener("click", renderChart);
     // resultButton.className = `clicks-allowed`;
-    productContainer.className = `novoting`;
+    // productContainer.className = `novoting`;
     alert("Please Click Table Results Button");
     let thanks = document.querySelector("#voting");
     let you = document.createElement("h3");
