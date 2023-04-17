@@ -1,24 +1,27 @@
 "use strict";
 
-let hello = alert("Hello, please click on the products you like!");
-let warning = alert("Please don't touch our duck.");
+// let hello = alert("Hello, please click on the products you like!");
+// let warning = alert("Please don't touch our duck.");
 
 let duckCounter = 0;
 function helloQuack() {
   duckCounter++;
   if (duckCounter === 1) {
-    alert(`Quack!`);
+    alert(`I asked you not to touch the duck. The longer you wait, the longer the duck is suspended in time and space.`);
   }
   if (duckCounter === 1) {
-    alert(`I asked you not to touch the duck.`);
+    alert(`Quack!`);
+    document.getElementById("siteLogo").id = "siteLogos";
   }
   if (duckCounter === 2) {
-    alert(`Ouch, that's fowl play!`);
+    alert(`Ouch, that's fowl play! You can't catch him`);
   }
   if (duckCounter === 3) {
     alert(`This means war!`);
-    document.getElementById("siteLogo").src = "https://media0.giphy.com/media/fWAAhHvKk9QtMOSZfy/giphy.gif";
+    document.getElementById("siteLogos").src = "https://media0.giphy.com/media/fWAAhHvKk9QtMOSZfy/giphy.gif";
     document.body.style.backgroundColor = "rgba(105, 105, 105, 0.664)";
+    document.getElementById("toldYou").style.color = " rgb(255, 255, 255)";
+    document.getElementById("toldYou").textContent = "He's gone quackers!";
   } else if (duckCounter >= 4) {
     alert(`I will get you at the quack of dawn.`);
   }

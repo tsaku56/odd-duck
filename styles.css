@@ -26,6 +26,25 @@ main {
   grid-row-end: 3;
   grid-column-start: 1;
   grid-column-end: 3;
+  position: absolute;
+  animation-name: leftToRight, spin;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+#siteLogos {
+  width: 250px;
+  z-index: 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  position: absolute;
+  animation-name: leftToRights, upAndDown;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 
 h1 {
@@ -39,16 +58,35 @@ h1 {
   grid-column-end: 5;
 }
 
+h3 {
+  font-weight: 600;
+  font-style: italic;
+  display: flex;
+  grid-row-start: 2;
+  grid-row-end: 4;
+  grid-column-start: 2;
+  grid-column-end: 4;
+  margin-top: 120px;
+}
+
+h3 u {
+  padding-left: 5px;
+  z-index: 2;
+}
+
 #duckRow {
   display: flex;
   margin-top: 6rem;
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 1;
 }
 
 #duckOut {
   position: relative;
   left: 0px;
   top: 0px;
-  z-index: 1;
+  z-index: 2;
 }
 
 section {
@@ -67,6 +105,7 @@ section img {
   max-width: 33%;
   max-height: 26rem;
   border: 5px solid transparent;
+  z-index: 2;
 }
 
 section img:hover {
@@ -167,5 +206,83 @@ div h2 {
 
   li {
     font-size: 1rem;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes leftToRight {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: 1050px;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes leftToRights {
+  0% {
+    left: 0;
+    width: 250px;
+  }
+  50% {
+    left: 1050px;
+    width: 250px;
+  }
+  60% {
+    width: 100px;
+  }
+  80% {
+    width: 100px;
+  }
+  100% {
+    left: 0;
+    width: 250px;
+  }
+}
+
+@keyframes upAndDown {
+  0% {
+    top: 00px;
+  }
+  20% {
+    top: 20px;
+  }
+  30% {
+    top: 00px;
+  }
+  50% {
+    top: 20px;
+  }
+  55% {
+    top: 350px;
+  }
+  60% {
+    top: 200px;
+  }
+  65% {
+    top: 440px;
+  }
+  70% {
+    top: 200px;
+  }
+  75% {
+    top: 440px;
+  }
+  80% {
+    top: 440px;
+  }
+  90% {
+    top: 00px;
   }
 }
