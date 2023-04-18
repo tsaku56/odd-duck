@@ -11,10 +11,10 @@ function helloQuack() {
   }
   if (duckCounter === 1) {
     alert(`Quack!`);
-    document.getElementById("siteLogo").id = "siteLogos";
   }
   if (duckCounter === 2) {
     alert(`Ouch, that's fowl play! You can't catch him`);
+    document.getElementById("siteLogo").id = "siteLogos";
   }
   if (duckCounter === 3) {
     alert(`This means war!`);
